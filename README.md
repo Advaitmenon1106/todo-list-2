@@ -76,18 +76,13 @@ The user's profile information. Consists of generic options such as logout, dele
 
 Gives the user a means to create different folders for different to-do lists/memos. The user can keep track of their folders in this option. Allows means to add/delete/modify memos in a folder, to make new folders and add to-do lists to them as well.
 
-#### 4. Priority To-Do's
+#### 4. Priority To-Do's [Work in Progress]
 
 This is a feature of the To-Do app where users can create a priority label for their notes based on their own logic. These priority labels will show up in decreasing order of urgency/deadline dates (depending on the user) in this menu. This allows a cleaner top-level view of the more essential/urgent notes if the user is using the app for multiple purposes of varying importance levels.
 
-#### 7. Help
+#### 5. Help
 
 Consists of FAQs (Frequently Asked Questions) and a way to contact the developer(s) and/or maintainers in charge of handling this app.
-
-#### 8. Shared Lists
-
-Shared Lists are used for collaborative purposes where 2 or more users can access a single to-do list or even a single folder of to-do lists. Editing will happen in real-time and a single admin can set a hierarchy of permissions for different users to access some parts of a folder, if access needs to be restricted.
-
 
 ### Architecture
 

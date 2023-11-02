@@ -92,20 +92,25 @@
         #addTask:hover{
             background-color: #04264f;
         }
-
+        #tableMenu{
+            margin-top: 10%;
+        }
         table, td, th{
-            border: 5px solid #0c2543;
+            border: 3px solid #0c2543;
+            width: 85vw;
+            border-collapse: collapse;
         }
         td, th{
             padding-right: 5%;
+            border-collapse: collapse;
         }
         h1, h3{
             color: #12335b;
             text-align: center;
         }
-        #empty{
-            margin-top: 10%;
-        }
+        /* #empty{
+            
+        } */
     </style>
 
 </head>
@@ -135,13 +140,18 @@
             <h3>You have {{count}} tasks left!</h3>
             <div><a href="{% url 'task-create' %}" id="addTask">Add Task</a></div>
 
+            <table id="tableMenu">
+                <tr style="width: 40vw;">
+                <td><b>Title</b></td>
+                <td><b>Created Time</b></td>
+                </tr>
                 {% for task in tasks %}
-                <table>
                 <tr>
                     <td>{{task.title}}</td>
+                    <td>{{task.created}}</td>
 
-                    <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
-                    <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+                    <td style="width: 100px;"><a href="{% url 'task-update' task.id %}">Edit</a></td>
+                    <td style="width: 100px;"><a href="{% url 'task-delete' task.id %}">Delete</a></td>
                 </tr>
                 {% empty %}
                     <h3 id="empty">No to-do items in the list. To get started, add a to-do note/list by clicking on "Add Task".</h3>
