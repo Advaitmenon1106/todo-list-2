@@ -1,14 +1,62 @@
-{% extends 'base/main.html' %}
-{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        *{
+            font-family: 'Playpen Sans', cursive, 'Times New Roman', Times, serif;
+        }
+        .container{
+            max-width: 660px;
+            border-radius: 10px;
+            padding: 2%;
+            margin: auto;
+            margin-top: 10%;
+            box-shadow: 5px 2px 2px 2px silver;
+            font-size: 25px;
+            text-align: center;
+            margin-bottom: 5%;
+        }
+        #id_username::after{
+            content: "\a";
+            white-space: pre;
+            line-break: strict;
+        }
+        h1{
+            font-size: 40px;
+            font-weight: 500;
+        }
+        #loginButton{
+            font-size: 20px;
+            min-width: 100px;
+            height: 40px;
+            margin: 5%;
+            
+            
+        }
+        #loginForm input[type='text'], #loginForm input[type='password']{
+            font-size: 15px;
+            font-family: 'Playpen Sans', cursive, 'Times New Roman', Times, serif;
+            
+        }
+        #loginForm input[type='password']{
+            margin-left: 1.5%;
+        }
+    </style>
+</head>
+    <body>
+        <div class="container">
+                <h1>Register</h1>
+            <form method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <input type="submit" value="Register">
+            </form>
 
-<h1>Register</h1>
-
-<form method="post">
-    {%csrf_token%}
-    {{form.as_p}}
-    <input type="submit" value="Register">
-</form>
-
-<p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
-
-{% endblock content%}
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+        
+    </body>
+</html>

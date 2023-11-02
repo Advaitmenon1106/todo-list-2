@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{request.user}}'s Todo List</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&display=swap" rel="stylesheet">
+
     <style>
         *{
             margin: 0;
             padding: 0;
+            font-family: 'Playpen Sans', cursive, 'Times New Roman', Times, serif;
         }
         #search_form input[type='text']{
             background-color: rgb(210, 208, 208);
@@ -32,7 +38,7 @@
             outline: none;
             font-size: 20px;
             text-indent: 10px;
-            background-color: silver;
+            background-color: rgb(230, 228, 228);
             border: 2px solid #0c2543;
             transition-duration: 0.2s;
         }
@@ -60,14 +66,31 @@
         }
         #logout{
             color: white;
-            font-size: 20px;
+            font-size: 17px;
             position: relative;
-            top: 63px;
+            top: 76px;
             left: 72.5vw;
             text-decoration: none;
-            background-color: rgb(176, 9, 9);
+            background-color:rgba(255, 10, 10, 0.853);
             padding: 0.2%;
-            border: 3px solid rgb(176, 9, 9);
+            border-radius: 5px;
+        }
+        #logout:hover{
+            background-color:rgba(175, 0, 0, 0.853);
+        }
+        #addTask{
+            float: right;
+            position: relative;
+            right: 10%;
+            padding: 0.5%;
+            border-radius:10px;
+            width: 74px;
+            height: 30px;
+            color: white;
+            background-color: #17467e;
+        }
+        #addTask:hover{
+            background-color: #04264f;
         }
 
         table, td, th{
@@ -79,6 +102,9 @@
         h1, h3{
             color: #12335b;
             text-align: center;
+        }
+        #empty{
+            margin-top: 10%;
         }
     </style>
 
@@ -107,23 +133,18 @@
 
             <h1>My To Do List</h1>
             <h3>You have {{count}} tasks left!</h3>
+            <div><a href="{% url 'task-create' %}" id="addTask">Add Task</a></div>
 
-            <a href="{% url 'task-create' %}">Add Task</a>
-
-            <table>
-                <tr>
-                    <th>Item</th>
-                    <th></th>
-                    <th></th>
-                </tr>
                 {% for task in tasks %}
+                <table>
                 <tr>
                     <td>{{task.title}}</td>
+
                     <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
                     <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
                 </tr>
                 {% empty %}
-                    <h3>No Items in list</h3>
+                    <h3 id="empty">No to-do items in the list. To get started, add a to-do note/list by clicking on "Add Task".</h3>
                 {% endfor %}
             </table>
         </div>

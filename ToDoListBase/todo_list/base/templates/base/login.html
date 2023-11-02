@@ -1,14 +1,64 @@
-{% extends 'base/main.html' %}
-{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Back</title>
 
-<h1>Login</h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&display=swap" rel="stylesheet">
 
-<form method="post">
-    {%csrf_token%}
-    {{form.as_p}}
-    <input type="submit" value="login">
-</form>
+    <style>
+        *{
+            font-family: 'Playpen Sans', cursive, 'Times New Roman', Times, serif;
+        }
+        .container{
+            max-width: 550px;
+            border-radius: 10px;
+            padding: 2%;
+            margin: auto;
+            margin-top: 10%;
+            box-shadow: 5px 2px 2px 2px silver;
+            font-size: 25px;
+            text-align: center;
+            margin-bottom: 5%;
+        }
+        h1{
+            font-size: 40px;
+            font-weight: 500;
+        }
+        #loginButton{
+            font-size: 20px;
+            min-width: 100px;
+            height: 40px;
+            margin: 5%;
+            
+            
+        }
+        #loginForm input[type='text'], #loginForm input[type='password']{
+            font-size: 15px;
+            font-family: 'Playpen Sans', cursive, 'Times New Roman', Times, serif;
+            
+        }
+        #loginForm input[type='password']{
+            margin-left: 1.5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="containerBox">
+        <div class="container">
+            <h1>Login</h1>  
 
-<p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+            <form method="post" id="loginForm">
+                {%csrf_token%}
+                {{form.as_p}}
+                <input type="submit" value="Login" id="loginButton">
+            </form>
 
-{% endblock content%}
+            <p>Don't have an account? <a href="{% url 'register' %}" style="text-decoration: none; color: #17467e;">Register</a></p>
+        </div>
+    </div>
+</body>
+</html>
